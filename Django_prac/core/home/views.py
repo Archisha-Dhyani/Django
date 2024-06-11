@@ -4,5 +4,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return render(request,"index.html")
+
+    people=[
+        {'name': 'Archisha ','age': 19},
+        {'name': 'Khushi ','age': 19},
+        {'name': 'Mysha ','age': 7}
+    ]
+    return render(request,"index.html",context = {"people":people})
 
