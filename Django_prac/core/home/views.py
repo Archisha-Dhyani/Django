@@ -10,5 +10,7 @@ def home(request):
         {'name': 'Khushi ','age': 19},
         {'name': 'Mysha ','age': 7}
     ]
+
+
     return render(request,"index.html",context = {"people":people})
 

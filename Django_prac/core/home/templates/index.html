@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML 5 Boilerplate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+  <h1>This is a template returned by Django</h1>
+  <p>This is a paragraph.</p>
 
-    <h1>This is a template returned by django <h1>
-        <p>this is a paragrapgh </p>
-        {{people}}
-	<script src="index.js"></script>
-  </body>
+  <table>
+    <tr>
+      <th>SNo</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Can Vote</th>
+    </tr>
+    {% for i in people %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.age }}</td>
+      <td>
+        {% if i.age >= 18 %}
+        can vote
+        {% else %}
+        can't vote
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+ 
+
+  <script src="index.js"></script>
+</body>
 </html>
